@@ -7,7 +7,7 @@ from workflows.final_ai_standard import run_final_ai_standard
 from workflows.final_ai_smart import run_final_ai_smart
 from workflows.postal_enricher import run_postal_enricher, EnricherOptions
 from auth import check_login, logout
-from admin_panel import show_admin_panel
+from admin_panel import show_admin_panel, track_user_session, track_file_upload
 from user_management import create_user
 
 # Set page config
@@ -22,12 +22,18 @@ except:
 # Check login
 check_login()
 
+# Track user session
+if "session_tracked" not in st.session_state:
+    track_user_session(st.session_state.username, "login")
+    st.session_state.session_tracked = True
+
 # Sidebar
 with st.sidebar:
     st.write(f"👤 **User:** {st.session_state.username}")
     st.write(f"📊 **Role:** {st.session_state.user_role}")
     
     if st.button("Logout", use_container_width=True):
+        track_user_session(st.session_state.username, "logout")
         logout()
 
 # Main content
@@ -54,7 +60,11 @@ work_dir = Path(tempfile.mkdtemp(prefix="dhl_team_tool_"))
 
 def save_uploaded(uploaded_file, target_path: Path):
     target_path.write_bytes(uploaded_file.getbuffer())
+    # Track file upload
+    size_mb = uploaded_file.size / (1024 * 1024)
+    track_file_upload(st.session_state.username, uploaded_file.name, size_mb, "workflow")
     return target_path
+
 
 
 def get_secret(name: str) -> str:

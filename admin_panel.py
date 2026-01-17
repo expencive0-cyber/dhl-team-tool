@@ -7,6 +7,140 @@ import json
 import psutil
 import subprocess
 
+# Session tracking file
+SESSIONS_FILE = Path(".streamlit/sessions.json")
+UPLOADS_FILE = Path(".streamlit/uploads.json")
+
+def track_user_session(username, action="login"):
+    """Track active user sessions"""
+    Path(".streamlit").mkdir(exist_ok=True)
+    sessions = {}
+    
+    if SESSIONS_FILE.exists():
+        try:
+            with open(SESSIONS_FILE, 'r') as f:
+                sessions = json.load(f)
+        except:
+            sessions = {}
+    
+    if action == "login":
+        sessions[username] = {
+            "login_time": datetime.now().isoformat(),
+            "last_activity": datetime.now().isoformat(),
+            "status": "online"
+        }
+    elif action == "logout":
+        if username in sessions:
+            sessions[username]["status"] = "offline"
+            sessions[username]["logout_time"] = datetime.now().isoformat()
+    elif action == "activity":
+        if username in sessions:
+            sessions[username]["last_activity"] = datetime.now().isoformat()
+    
+    try:
+        with open(SESSIONS_FILE, 'w') as f:
+            json.dump(sessions, f, indent=2)
+    except:
+        pass
+
+def get_online_users():
+    """Get list of currently online users"""
+    if not SESSIONS_FILE.exists():
+        return []
+    
+    try:
+        with open(SESSIONS_FILE, 'r') as f:
+            sessions = json.load(f)
+        
+        online = []
+        for username, data in sessions.items():
+            if data.get("status") == "online":
+                # Check if user was active in last 15 minutes
+                last_activity = datetime.fromisoformat(data.get("last_activity", datetime.now().isoformat()))
+                if datetime.now() - last_activity < timedelta(minutes=15):
+                    online.append({
+                        "username": username,
+                        "login_time": data.get("login_time", "Unknown"),
+                        "last_activity": data.get("last_activity", "Unknown"),
+                        "session_duration": str(datetime.now() - datetime.fromisoformat(data.get("login_time", datetime.now().isoformat())))[:8]
+                    })
+        
+        return online
+    except:
+        return []
+
+def track_file_upload(username, filename, filesize_mb, workflow_type="unknown"):
+    """Track file uploads"""
+    Path(".streamlit").mkdir(exist_ok=True)
+    uploads = {}
+    
+    if UPLOADS_FILE.exists():
+        try:
+            with open(UPLOADS_FILE, 'r') as f:
+                uploads = json.load(f)
+        except:
+            uploads = {}
+    
+    if username not in uploads:
+        uploads[username] = []
+    
+    uploads[username].append({
+        "timestamp": datetime.now().isoformat(),
+        "filename": filename,
+        "size_mb": f"{filesize_mb:.2f}",
+        "workflow": workflow_type
+    })
+    
+    # Keep only last 50 uploads per user
+    if len(uploads[username]) > 50:
+        uploads[username] = uploads[username][-50:]
+    
+    try:
+        with open(UPLOADS_FILE, 'w') as f:
+            json.dump(uploads, f, indent=2)
+    except:
+        pass
+
+def get_user_uploads(username=None):
+    """Get file uploads by user"""
+    if not UPLOADS_FILE.exists():
+        return {}
+    
+    try:
+        with open(UPLOADS_FILE, 'r') as f:
+            uploads = json.load(f)
+        
+        if username:
+            return uploads.get(username, [])
+        return uploads
+    except:
+        return {} if not username else []
+
+def get_output_files():
+    """Get list of output files created"""
+    output_files = []
+    temp_base = Path("/tmp")
+    
+    try:
+        temp_dirs = list(temp_base.glob("dhl_team_tool_*"))
+        for temp_dir in temp_dirs[-20:]:
+            files = list(temp_dir.glob("*"))
+            for file in files:
+                if file.is_file() and any(file.name.endswith(ext) for ext in ['_output.xlsx', '_smart_output.xlsx', '.zip', 'enriched_output.xlsx']):
+                    size_mb = file.stat().st_size / (1024 * 1024)
+                    mod_time = datetime.fromtimestamp(file.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
+                    output_files.append({
+                        "name": file.name,
+                        "size_mb": f"{size_mb:.2f}",
+                        "created": mod_time,
+                        "type": file.suffix,
+                        "path": str(file)
+                    })
+    except:
+        pass
+    
+    return output_files
+
 def get_app_logs(lines=50):
     """Get recent app logs"""
     log_files = list(Path("logs").glob("*.log")) if Path("logs").exists() else []
@@ -136,14 +270,15 @@ def show_admin_panel():
     """Admin panel for user management and monitoring"""
     st.write("### 👨‍💼 Admin Panel")
     
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
         "👥 Users", 
         "📊 Statistics", 
         "📁 Files", 
         "📝 Logs",
         "💻 System",
         "📈 Activity",
-        "⚙️ Tools"
+        "⚙️ Tools",
+        "🌐 Online Users"
     ])
     
     # TAB 1: User Management
@@ -507,4 +642,94 @@ def show_admin_panel():
                 st.warning("⚠️ App will restart. This will disconnect all users.")
                 if st.button("Confirm Restart", key="confirm_restart"):
                     st.rerun()
+    
+    # TAB 8: Online Users & Sessions
+    with tab8:
+        st.write("**🌐 Online Users & Active Sessions**")
+        
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            online_users = get_online_users()
+            st.metric("👥 Online Users", len(online_users))
+        
+        with col2:
+            uploads = get_user_uploads()
+            total_uploads = sum(len(v) for v in uploads.values())
+            st.metric("📤 Total Uploads", total_uploads)
+        
+        with col3:
+            outputs = get_output_files()
+            st.metric("📥 Output Files", len(outputs))
+        
+        st.divider()
+        
+        # Online Users
+        if online_users:
+            st.write("**Currently Online**")
+            for user in online_users:
+                with st.container(border=True):
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.write(f"**👤 {user['username']}**")
+                    
+                    with col2:
+                        st.caption(f"Login: {user['login_time'].split('T')[1][:5]}")
+                    
+                    with col3:
+                        st.caption(f"Session: {user['session_duration']}")
+                    
+                    with col4:
+                        st.caption(f"📍 Last activity: {user['last_activity'].split('T')[1][:5]}")
+                    
+                    # Show user's recent uploads
+                    user_uploads = get_user_uploads(user['username'])
+                    if user_uploads:
+                        st.write(f"*Recent uploads ({len(user_uploads)}):*")
+                        for upload in user_uploads[-5:]:
+                            st.caption(f"📄 {upload['filename']} ({upload['size_mb']} MB) - {upload['workflow']}")
+        else:
+            st.info("😴 No users currently online")
+        
+        st.divider()
+        
+        # All User Activity
+        st.write("**📊 User Upload Summary**")
+        uploads = get_user_uploads()
+        
+        if uploads:
+            summary_data = {user: len(files) for user, files in uploads.items()}
+            st.bar_chart(summary_data)
+            
+            for username, files in uploads.items():
+                if files:
+                    with st.expander(f"📁 {username} ({len(files)} uploads)"):
+                        for file in files[-10:]:
+                            st.caption(f"• {file['filename']} ({file['size_mb']} MB) - {file['timestamp'].split('T')[1][:5]}")
+        else:
+            st.info("No uploads tracked yet")
+        
+        st.divider()
+        
+        # Recent Output Files
+        st.write("**📥 Generated Output Files**")
+        outputs = get_output_files()
+        
+        if outputs:
+            for output in outputs[-10:]:
+                with st.container(border=True):
+                    col1, col2, col3 = st.columns([2, 1, 1])
+                    
+                    with col1:
+                        st.write(f"📄 {output['name']}")
+                    
+                    with col2:
+                        st.caption(f"{output['size_mb']} MB")
+                    
+                    with col3:
+                        st.caption(f"{output['created']}")
+        else:
+            st.info("No output files generated yet")
+
 
