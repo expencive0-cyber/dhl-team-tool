@@ -1,0 +1,262 @@
+2026-01-17 10:43:23 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:23 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:23 +00:00: ^
+2026-01-17 10:43:23 +00:00: 
+2026-01-17 10:43:23 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:23 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:23 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:23 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:23 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:23 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:23 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:23 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:23 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:23 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:23 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:23 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:23 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:23 +00:00: ^
+2026-01-17 10:43:23 +00:00: 
+2026-01-17 10:43:23 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:23 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:23 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:23 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:23 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:23 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:23 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:23 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:23 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:23 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:23 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:24 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:24 +00:00: ^
+2026-01-17 10:43:24 +00:00: 
+2026-01-17 10:43:24 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:24 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:24 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:24 +00:00: ^
+2026-01-17 10:43:24 +00:00: 
+2026-01-17 10:43:24 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:24 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:24 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:24 +00:00: ^
+2026-01-17 10:43:24 +00:00: 
+2026-01-17 10:43:24 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:24 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:24 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:24 +00:00: ^
+2026-01-17 10:43:24 +00:00: 
+2026-01-17 10:43:24 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:24 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:24 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:24 +00:00: ^
+2026-01-17 10:43:24 +00:00: 
+2026-01-17 10:43:24 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:24 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:24 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:24 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:24 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:24 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:24 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:25 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:25 +00:00: ^
+2026-01-17 10:43:25 +00:00: 
+2026-01-17 10:43:25 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:25 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:25 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:25 +00:00: ^
+2026-01-17 10:43:25 +00:00: 
+2026-01-17 10:43:25 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:25 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:25 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:25 +00:00: ^
+2026-01-17 10:43:25 +00:00: 
+2026-01-17 10:43:25 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:25 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:25 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:25 +00:00: ^
+2026-01-17 10:43:25 +00:00: 
+2026-01-17 10:43:25 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:25 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:25 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:25 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:25 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:25 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:25 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:26 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:26 +00:00: ^
+2026-01-17 10:43:26 +00:00: 
+2026-01-17 10:43:26 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:26 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:26 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:26 +00:00: ^
+2026-01-17 10:43:26 +00:00: 
+2026-01-17 10:43:26 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:26 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:26 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:26 +00:00: ^
+2026-01-17 10:43:26 +00:00: 
+2026-01-17 10:43:26 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:26 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:26 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:26 +00:00: ^
+2026-01-17 10:43:26 +00:00: 
+2026-01-17 10:43:26 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:26 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00: /home/vscode/.local/bin/streamlit:2
+2026-01-17 10:43:26 +00:00: # -*- coding: utf-8 -*-
+2026-01-17 10:43:26 +00:00: ^
+2026-01-17 10:43:26 +00:00: 
+2026-01-17 10:43:26 +00:00: SyntaxError: Invalid or unexpected token
+2026-01-17 10:43:26 +00:00:     at wrapSafe (node:internal/modules/cjs/loader:1472:18)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1501:20)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 10:43:26 +00:00:     at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+2026-01-17 10:43:26 +00:00:     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+2026-01-17 10:43:26 +00:00:     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+2026-01-17 10:43:26 +00:00:     at Module.load (node:internal/modules/cjs/loader:1275:32)
+2026-01-17 10:43:26 +00:00:     at Module._load (node:internal/modules/cjs/loader:1096:12)
+2026-01-17 11:41:58 +00:00: 2026-01-17 11:41:58.553 Error parsing config toml. This is most likely due to a syntax error in the config.toml file. Please fix it and try again.
+2026-01-17 11:41:58 +00:00: Traceback (most recent call last):
+2026-01-17 11:41:58 +00:00:   File "/home/vscode/.local/lib/python3.11/site-packages/toml/decoder.py", line 511, in loads
+2026-01-17 11:41:58 +00:00:     ret = decoder.load_line(line, currentlevel, multikey,
+2026-01-17 11:41:58 +00:00:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-01-17 11:41:58 +00:00:   File "/home/vscode/.local/lib/python3.11/site-packages/toml/decoder.py", line 778, in load_line
+2026-01-17 11:41:58 +00:00:     value, vtype = self.load_value(pair[1], strictly_valid)
+2026-01-17 11:41:58 +00:00:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-01-17 11:41:58 +00:00:   File "/home/vscode/.local/lib/python3.11/site-packages/toml/decoder.py", line 910, in load_value
+2026-01-17 11:41:58 +00:00:     raise ValueError("This float doesn't have a leading "
+2026-01-17 11:41:58 +00:00: ValueError: This float doesn't have a leading digit
+2026-01-17 11:41:58 +00:00: 
+2026-01-17 11:41:58 +00:00: During handling of the above exception, another exception occurred:
+2026-01-17 11:41:58 +00:00: 
+2026-01-17 11:41:58 +00:00: Traceback (most recent call last):
+2026-01-17 11:41:58 +00:00:   File "/home/vscode/.local/lib/python3.11/site-packages/streamlit/config.py", line 2473, in _update_config_with_toml
+2026-01-17 11:41:58 +00:00:     parsed_config_file = toml.loads(raw_toml)
+2026-01-17 11:41:58 +00:00:                          ^^^^^^^^^^^^^^^^^^^^
+2026-01-17 11:41:58 +00:00:   File "/home/vscode/.local/lib/python3.11/site-packages/toml/decoder.py", line 514, in loads
+2026-01-17 11:41:58 +00:00:     raise TomlDecodeError(str(err), original, pos)
+2026-01-17 11:41:58 +00:00: toml.decoder.TomlDecodeError: This float doesn't have a leading digit (line 4 column 1 char 44)
+2026-01-17 11:41:58 +00:00: 2026-01-17 11:41:58.558 An update to the [server] config option section was detected. To have these changes be reflected, please restart streamlit.

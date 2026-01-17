@@ -1,0 +1,10 @@
+streamlit
+pandas
+openpyxl
+numpy
+requests
+
+# Optional (Smart AI mapping). Uncomment if you want AI-assisted mapping.
+# transformers
+# torch
+# sentencepiece

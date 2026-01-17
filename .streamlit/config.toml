@@ -1,0 +1,22 @@
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = falseport = 8501
+address = 0.0.0.0
+maxUploadSize = 200
+
+[theme]
+primaryColor = "#FF6B6B"
+backgroundColor = "#F8F9FA"
+secondaryBackgroundColor = "#E8ECEF"
+textColor = "#262730"
+
+[logger]
+level = "info"
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = true
+
+[runner]
+magicEnabled = true

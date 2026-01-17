@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+env/
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/users.json
+.streamlit/users.json.save
+
+# Outputs / caches
+output_*/
+*.zip
+*_QC.xlsx
+*_LOG.xlsx
+*_SUMMARY.xlsx
+postcode_cache.json
+
+dhl_city_cache.csv
+dhl_country_city_index.csv
+
+.DS_Store
+
+# Node/PM2
+node_modules/
+nohup.out
+.pm2/
+
+# Config files
+app_config.json
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+
+# Database
+*.db
+*.sqlite
+
+    name: 'dhl-team-tool',
+    script: 'streamlit',
+    args: 'run app.py --server.port=8501 --server.address=0.0.0.0',
+    instances: 1,
+    exec_mode: 'fork',
+    watch: false,
+    max_memory_restart: '500M',
+    error_file: './logs/error.log',
+    out_file: './logs/out.log',
+    log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
+  }]
+};
