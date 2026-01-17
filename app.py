@@ -13,14 +13,9 @@ from user_management import create_user
 # Set page config
 st.set_page_config(page_title="DHL Team Tool", layout="wide")
 
-# Create default demo users on first run
+# Create default user on first run
 try:
-    create_user("admin", "admin123", "admin")
-except:
-    pass
-
-try:
-    create_user("user", "user123", "user")
+    create_user("mabuzeid", "Mta@0127809934800", "admin")
 except:
     pass
 
