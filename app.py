@@ -13,14 +13,19 @@ from user_management import create_user
 # Set page config
 st.set_page_config(page_title="DHL Team Tool", layout="wide")
 
-# Check login
-check_login()
-
-# Create only mabuzeid user on first run
+# Create default demo users on first run
 try:
-    create_user("mabuzeid", "Mta@0127809934800", "admin")
+    create_user("admin", "admin123", "admin")
 except:
     pass
+
+try:
+    create_user("user", "user123", "user")
+except:
+    pass
+
+# Check login
+check_login()
 
 # Sidebar
 with st.sidebar:
