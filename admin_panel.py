@@ -2,8 +2,10 @@ import streamlit as st
 from user_management import create_user, delete_user, list_all_users
 from pathlib import Path
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
+import psutil
+import subprocess
 
 def get_app_logs(lines=50):
     """Get recent app logs"""
@@ -40,6 +42,73 @@ def get_uploaded_files():
                     })
     return uploaded_files
 
+def get_system_health():
+    """Get system health metrics"""
+    try:
+        cpu_percent = psutil.cpu_percent(interval=1)
+        memory = psutil.virtual_memory()
+        disk = psutil.disk_usage('/')
+        
+        return {
+            "cpu_percent": cpu_percent,
+            "memory_percent": memory.percent,
+            "memory_used_gb": memory.used / (1024**3),
+            "memory_total_gb": memory.total / (1024**3),
+            "disk_percent": disk.percent,
+            "disk_used_gb": disk.used / (1024**3),
+            "disk_total_gb": disk.total / (1024**3),
+        }
+    except:
+        return None
+
+def get_process_info():
+    """Get current process info"""
+    try:
+        process = psutil.Process(os.getpid())
+        return {
+            "pid": process.pid,
+            "memory_mb": process.memory_info().rss / (1024**2),
+            "cpu_percent": process.cpu_percent(interval=0.1),
+            "threads": process.num_threads(),
+            "create_time": datetime.fromtimestamp(process.create_time()).strftime("%Y-%m-%d %H:%M:%S")
+        }
+    except:
+        return None
+
+def get_activity_log():
+    """Get user activity log"""
+    activity_file = Path(".streamlit/activity.json")
+    if activity_file.exists():
+        try:
+            with open(activity_file, 'r') as f:
+                return json.load(f)
+        except:
+            return []
+    return []
+
+def log_activity(action, user, details=""):
+    """Log user activity"""
+    activity_file = Path(".streamlit/activity.json")
+    Path(".streamlit").mkdir(exist_ok=True)
+    
+    activities = get_activity_log()
+    activities.append({
+        "timestamp": datetime.now().isoformat(),
+        "user": user,
+        "action": action,
+        "details": details
+    })
+    
+    # Keep only last 100 activities
+    if len(activities) > 100:
+        activities = activities[-100:]
+    
+    try:
+        with open(activity_file, 'w') as f:
+            json.dump(activities, f, indent=2)
+    except:
+        pass
+
 def get_session_stats():
     """Get session statistics"""
     # Try to read from a stats file if it exists
@@ -52,16 +121,29 @@ def get_session_stats():
             return {}
     return {}
 
+def export_data():
+    """Export all application data"""
+    export_data = {
+        "export_time": datetime.now().isoformat(),
+        "users": list_all_users(),
+        "activity_log": get_activity_log(),
+        "system_health": get_system_health(),
+    }
+    return json.dumps(export_data, indent=2)
+
+
 def show_admin_panel():
     """Admin panel for user management and monitoring"""
     st.write("### 👨‍💼 Admin Panel")
     
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "👥 Users", 
         "📊 Statistics", 
-        "📁 Uploaded Files", 
+        "📁 Files", 
         "📝 Logs",
-        "⚙️ Settings"
+        "💻 System",
+        "📈 Activity",
+        "⚙️ Tools"
     ])
     
     # TAB 1: User Management
@@ -245,3 +327,184 @@ def show_admin_panel():
                 st.success("✅ Logs cleared")
             except Exception as e:
                 st.error(f"❌ Error: {e}")
+    
+    # TAB 6: System Health & Performance
+    with tab6:
+        st.write("**System Health Monitoring**")
+        
+        health = get_system_health()
+        
+        if health:
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                st.metric("CPU Usage", f"{health['cpu_percent']}%", delta="Live")
+            
+            with col2:
+                st.metric("Memory Usage", 
+                         f"{health['memory_percent']}%", 
+                         f"{health['memory_used_gb']:.2f}/{health['memory_total_gb']:.2f}GB")
+            
+            with col3:
+                st.metric("Disk Usage", 
+                         f"{health['disk_percent']}%",
+                         f"{health['disk_used_gb']:.2f}/{health['disk_total_gb']:.2f}GB")
+            
+            # Charts
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.write("**Resource Usage**")
+                resource_data = {
+                    "CPU": health['cpu_percent'],
+                    "Memory": health['memory_percent'],
+                    "Disk": health['disk_percent']
+                }
+                st.bar_chart(resource_data)
+            
+            with col2:
+                st.write("**Process Information**")
+                process_info = get_process_info()
+                if process_info:
+                    st.write(f"**Process ID:** {process_info['pid']}")
+                    st.write(f"**Memory:** {process_info['memory_mb']:.2f} MB")
+                    st.write(f"**CPU:** {process_info['cpu_percent']:.1f}%")
+                    st.write(f"**Threads:** {process_info['threads']}")
+                    st.write(f"**Started:** {process_info['create_time']}")
+        else:
+            st.warning("⚠️ Could not retrieve system metrics")
+    
+    # TAB 7: Activity Log
+    with tab7:
+        st.write("**User Activity Log**")
+        
+        activities = get_activity_log()
+        
+        if activities:
+            # Show last activities first
+            for activity in reversed(activities[-20:]):
+                timestamp = activity.get('timestamp', 'Unknown')
+                user = activity.get('user', 'Unknown')
+                action = activity.get('action', 'Unknown')
+                details = activity.get('details', '')
+                
+                with st.container():
+                    col1, col2, col3 = st.columns([2, 2, 2])
+                    with col1:
+                        st.write(f"**{user}**")
+                    with col2:
+                        st.write(f"*{action}*")
+                    with col3:
+                        st.write(f"⏰ {timestamp[:19]}")
+                    if details:
+                        st.caption(f"📝 {details}")
+                    st.divider()
+        else:
+            st.info("📭 No activity recorded yet")
+        
+        # Export activity
+        if st.button("📥 Download Activity Log", use_container_width=True):
+            activity_json = json.dumps(activities, indent=2)
+            st.download_button(
+                label="Download JSON",
+                data=activity_json,
+                file_name=f"activity_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                mime="application/json"
+            )
+    
+    # TAB 8: Tools & Utilities
+    with tab5:
+        st.write("**Admin Tools**")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.write("**Application Info**")
+            st.info("""
+            **DHLMailShot v1.0**
+            
+            - Framework: Streamlit
+            - Deployment: Streamlit Cloud
+            - Repository: GitHub
+            - Status: ✅ Active
+            """)
+        
+        with col2:
+            st.write("**Quick Actions**")
+            if st.button("🔄 Refresh Dashboard", use_container_width=True):
+                st.rerun()
+            
+            if st.button("📋 System Information", use_container_width=True):
+                st.write(f"**Python Version:** {__import__('sys').version}")
+                st.write(f"**Streamlit Version:** {__import__('streamlit').__version__}")
+                st.write(f"**Current Time:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                st.write(f"**Platform:** {__import__('platform').system()}")
+        
+        st.divider()
+        st.write("**Data Management**")
+        
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            if st.button("📤 Export All Data", use_container_width=True):
+                data = export_data()
+                st.download_button(
+                    label="Download JSON Export",
+                    data=data,
+                    file_name=f"export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                    mime="application/json"
+                )
+        
+        with col2:
+            if st.button("🔐 Export Users", use_container_width=True):
+                users_data = json.dumps(list_all_users(), indent=2)
+                st.download_button(
+                    label="Download Users JSON",
+                    data=users_data,
+                    file_name=f"users_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                    mime="application/json"
+                )
+        
+        with col3:
+            if st.button("📊 Export Logs", use_container_width=True):
+                logs = "\n".join(get_app_logs(200))
+                st.download_button(
+                    label="Download Logs TXT",
+                    data=logs,
+                    file_name=f"logs_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                    mime="text/plain"
+                )
+        
+        st.divider()
+        st.write("**⚠️ Danger Zone**")
+        st.warning("Advanced operations - use with caution!")
+        
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            if st.button("🗑️ Clear Logs", use_container_width=True):
+                try:
+                    import shutil
+                    if Path("logs").exists():
+                        shutil.rmtree("logs")
+                        Path("logs").mkdir()
+                    st.success("✅ Logs cleared")
+                except Exception as e:
+                    st.error(f"❌ Error: {e}")
+        
+        with col2:
+            if st.button("🗑️ Clear Activity", use_container_width=True):
+                try:
+                    activity_file = Path(".streamlit/activity.json")
+                    if activity_file.exists():
+                        activity_file.unlink()
+                    st.success("✅ Activity log cleared")
+                except Exception as e:
+                    st.error(f"❌ Error: {e}")
+        
+        with col3:
+            if st.button("🔄 Restart App", use_container_width=True):
+                st.warning("⚠️ App will restart. This will disconnect all users.")
+                if st.button("Confirm Restart", key="confirm_restart"):
+                    st.rerun()
+
