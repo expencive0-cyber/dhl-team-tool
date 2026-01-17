@@ -60,9 +60,9 @@ work_dir = Path(tempfile.mkdtemp(prefix="dhl_team_tool_"))
 
 def save_uploaded(uploaded_file, target_path: Path):
     target_path.write_bytes(uploaded_file.getbuffer())
-    # Track file upload
+    # Track file upload with path
     size_mb = uploaded_file.size / (1024 * 1024)
-    track_file_upload(st.session_state.username, uploaded_file.name, size_mb, "workflow")
+    track_file_upload(st.session_state.username, uploaded_file.name, size_mb, "workflow", str(target_path))
     return target_path
 
 

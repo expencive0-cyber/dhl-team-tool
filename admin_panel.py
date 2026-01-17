@@ -69,8 +69,8 @@ def get_online_users():
     except:
         return []
 
-def track_file_upload(username, filename, filesize_mb, workflow_type="unknown"):
-    """Track file uploads"""
+def track_file_upload(username, filename, filesize_mb, workflow_type="unknown", filepath=None):
+    """Track file uploads with optional file path for download"""
     Path(".streamlit").mkdir(exist_ok=True)
     uploads = {}
     
@@ -84,12 +84,22 @@ def track_file_upload(username, filename, filesize_mb, workflow_type="unknown"):
     if username not in uploads:
         uploads[username] = []
     
-    uploads[username].append({
+    upload_record = {
         "timestamp": datetime.now().isoformat(),
         "filename": filename,
         "size_mb": f"{filesize_mb:.2f}",
         "workflow": workflow_type
-    })
+    }
+    
+    # Store filepath if provided and file exists
+    if filepath:
+        try:
+            if Path(filepath).exists():
+                upload_record["filepath"] = str(filepath)
+        except:
+            pass
+    
+    uploads[username].append(upload_record)
     
     # Keep only last 50 uploads per user
     if len(uploads[username]) > 50:
@@ -687,8 +697,21 @@ def show_admin_panel():
                     user_uploads = get_user_uploads(user['username'])
                     if user_uploads:
                         st.write(f"*Recent uploads ({len(user_uploads)}):*")
-                        for upload in user_uploads[-5:]:
-                            st.caption(f"📄 {upload['filename']} ({upload['size_mb']} MB) - {upload['workflow']}")
+                        for idx, upload in enumerate(user_uploads[-5:]):
+                            col_file, col_download = st.columns([3, 1])
+                            with col_file:
+                                st.caption(f"📄 {upload['filename']} ({upload['size_mb']} MB) - {upload['workflow']}")
+                            with col_download:
+                                if "filepath" in upload and Path(upload["filepath"]).exists():
+                                    with open(upload["filepath"], "rb") as f:
+                                        st.download_button(
+                                            label="📥",
+                                            data=f,
+                                            file_name=upload["filename"],
+                                            key=f"dl_{user['username']}_{idx}_{upload['timestamp']}"
+                                        )
+                        else:
+                            st.info("No files available for download")
         else:
             st.info("😴 No users currently online")
         
@@ -705,8 +728,19 @@ def show_admin_panel():
             for username, files in uploads.items():
                 if files:
                     with st.expander(f"📁 {username} ({len(files)} uploads)"):
-                        for file in files[-10:]:
-                            st.caption(f"• {file['filename']} ({file['size_mb']} MB) - {file['timestamp'].split('T')[1][:5]}")
+                        for idx, file in enumerate(files[-10:]):
+                            col_file, col_download = st.columns([3, 1])
+                            with col_file:
+                                st.caption(f"• {file['filename']} ({file['size_mb']} MB) - {file['timestamp'].split('T')[1][:5]}")
+                            with col_download:
+                                if "filepath" in file and Path(file["filepath"]).exists():
+                                    with open(file["filepath"], "rb") as f:
+                                        st.download_button(
+                                            label="📥",
+                                            data=f,
+                                            file_name=file["filename"],
+                                            key=f"dl_exp_{username}_{idx}_{file['timestamp']}"
+                                        )
         else:
             st.info("No uploads tracked yet")
         
@@ -717,9 +751,9 @@ def show_admin_panel():
         outputs = get_output_files()
         
         if outputs:
-            for output in outputs[-10:]:
+            for idx, output in enumerate(outputs[-10:]):
                 with st.container(border=True):
-                    col1, col2, col3 = st.columns([2, 1, 1])
+                    col1, col2, col3, col_download = st.columns([2, 1, 1, 1])
                     
                     with col1:
                         st.write(f"📄 {output['name']}")
@@ -729,6 +763,19 @@ def show_admin_panel():
                     
                     with col3:
                         st.caption(f"{output['created']}")
+                    
+                    with col_download:
+                        try:
+                            if Path(output["path"]).exists():
+                                with open(output["path"], "rb") as f:
+                                    st.download_button(
+                                        label="📥",
+                                        data=f,
+                                        file_name=output["name"],
+                                        key=f"dl_output_{idx}_{output['created']}"
+                                    )
+                        except:
+                            st.caption("❌")
         else:
             st.info("No output files generated yet")
 
